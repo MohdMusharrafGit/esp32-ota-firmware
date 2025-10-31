@@ -1,93 +1,119 @@
-<h1 align="center">🚀 ESP32 OTA Firmware Update System</h1> <p align="center"> <img src="https://img.shields.io/badge/Platform-ESP32-blue?style=for-the-badge"> <img src="https://img.shields.io/badge/Firmware-Auto_Update-green?style=for-the-badge"> <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"> <img src="https://img.shields.io/github/license/MohdMusharrafGit/esp32-ota-firmware?style=for-the-badge"> </p>
-🧩 Project Overview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 HTTPS OTA Updater</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background: #f8f9fb;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #0077cc;
+    }
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: #282c34;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
 
-This project enables secure HTTPS Over-The-Air (OTA) firmware updates for the ESP32 microcontroller.
-Your ESP32 automatically checks a GitHub-hosted repository every few minutes for a newer firmware version, downloads it securely, and flashes itself — no manual intervention required!
+  <h1>🚀 ESP32 HTTPS OTA Updater</h1>
+  <p>
+    This project implements <strong>Over-The-Air (OTA)</strong> firmware updates on the <strong>ESP32</strong> using a <strong>secure HTTPS server</strong>.
+    It automatically checks for new firmware every 30 minutes and updates the device when a newer version is found on GitHub.
+  </p>
 
-✨ Key Highlights
+  <div class="section">
+    <h2>📦 Features</h2>
+    <ul>
+      <li>Automatic OTA firmware updates via HTTPS</li>
+      <li>Version-controlled updates using <code>version.txt</code></li>
+      <li>Secure download from GitHub-hosted binary</li>
+      <li>Automatic periodic update checks</li>
+      <li>Serial logs for debugging and status updates</li>
+    </ul>
+  </div>
 
-🔒 HTTPS-based firmware delivery from GitHub
+  <div class="section">
+    <h2>⚙️ How It Works</h2>
+    <ol>
+      <li>ESP32 connects to Wi-Fi and retrieves <code>version.txt</code> from your GitHub repository.</li>
+      <li>If a new version is detected, the new <code>.bin</code> file is downloaded securely via HTTPS.</li>
+      <li>ESP32 performs a flash update and automatically reboots into the new firmware.</li>
+    </ol>
+  </div>
 
-🔁 Auto-check for updates every 30 minutes
+  <div class="section">
+    <h2>🧰 Requirements</h2>
+    <ul>
+      <li>ESP32 board</li>
+      <li>Arduino IDE with ESP32 core installed</li>
+      <li>WiFi connection</li>
+      <li>GitHub repository containing <code>firmware.bin</code> and <code>version.txt</code></li>
+    </ul>
+  </div>
 
-⚡ Seamless firmware download and self-flashing
+  <div class="section">
+    <h2>📁 GitHub File Structure</h2>
+    <pre>
+📦 esp32-ota-firmware
+ ┣ 📜 firmware.bin
+ ┣ 📜 version.txt
+ ┗ 📜 README.md
+    </pre>
+  </div>
 
-🧠 Version control via version.txt
-
-🧰 Lightweight, library-optimized design
-
-⚙️ How It Works
-
-ESP32 boots and connects to Wi-Fi.
-
-It fetches version.txt from the GitHub repo.
-
-Compares it to its internal firmware version.
-
-If a newer version exists → it automatically downloads firmware.bin and installs it.
-
-ESP32 reboots and runs the latest firmware.
-
-📁 Repository Structure
-📦 esp32-ota-firmware/
- ┣ 📜 firmware.bin       # Compiled binary firmware file
- ┣ 📜 version.txt        # Contains version number (e.g., 1.1.0)
- ┣ 📜 README.md          # You are here!
-
-🧰 How to Upload New Firmware
-
-Compile your new firmware (.bin)
-In Arduino IDE → Sketch > Export Compiled Binary
-
-Update version.txt
-
-1.2.0
-
-
-Upload both files to GitHub
-
-Go to your repo → Click “Add file” → “Upload files”
-
-Upload new firmware.bin and updated version.txt
-
-Commit changes
-
-ESP32 detects and updates automatically
-Within 30 minutes (or your set interval), ESP32 will:
-
-Detect new version
-
-Download firmware securely
-
-Flash and reboot 🎉
-
-🧠 Example Serial Monitor Output
+  <div class="section">
+    <h2>🚀 Example Output (Serial Monitor)</h2>
+    <pre>
 ✅ WiFi connected!
+IP address: 192.168.1.25
 🔍 Checking for new firmware...
 Current Version: 1.0.0
 Available Version: 1.1.0
 🆕 New firmware found! Starting OTA update...
 ⬇️ Downloading... 100%
 🎉 Update complete. Rebooting...
+    </pre>
+  </div>
 
-🧪 Tested On
+  <div class="section">
+    <h2>🧠 Author</h2>
+    <p>
+      Developed by <strong>Mohd Musharraf</strong> at <em>Advancetech Pvt. Ltd.</em>  
+      For educational and research purposes.  
+    </p>
+  </div>
 
-ESP32 DevKit v1
+  <div class="section">
+    <h2>📄 License</h2>
+    <p>This project is open-source under the MIT License.</p>
+  </div>
 
-Arduino IDE 2.x
-
-Firmware up to 1MB OTA
-
-🧑‍💻 Author
-
-Mohd Musharraf
-🎓 Central University of Jammu | ECE (Avionics)
-💼 Interested in Embedded Systems, IoT & Avionics
-🔗 GitHub Profile
-
-📜 License
-
-This project is licensed under the MIT License
-.
-
-<p align="center">⭐ Star this repo if you found it helpful!</p>
+</body>
+</html>
