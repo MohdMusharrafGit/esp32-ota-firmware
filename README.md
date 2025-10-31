@@ -5,91 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESP32 HTTPS OTA Updater</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 40px;
-      background: #f8f9fb;
-      color: #222;
-      line-height: 1.6;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 40px;
     }
-    h1, h2, h3 {
-      color: #0077cc;
+    header {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    code {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 14px;
+    header h1 {
+      font-size: 2.8rem;
+      color: #00c8ff;
+      letter-spacing: 2px;
+    }
+    header p {
+      color: #b5c8d1;
+      font-size: 1.2rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 {
+      color: #00c8ff;
+      border-left: 4px solid #00c8ff;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin-left: 20px;
     }
     pre {
-      background: #282c34;
-      color: #f8f8f2;
-      padding: 10px;
-      border-radius: 6px;
+      background: #1b2a38;
+      padding: 15px;
+      border-radius: 10px;
       overflow-x: auto;
+      color: #00ffb3;
     }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .section {
-      margin-bottom: 30px;
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #aaa;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <h1>🚀 ESP32 HTTPS OTA Updater</h1>
-  <p>
-    This project implements <strong>Over-The-Air (OTA)</strong> firmware updates on the <strong>ESP32</strong> using a <strong>secure HTTPS server</strong>.
-    It automatically checks for new firmware every 30 minutes and updates the device when a newer version is found on GitHub.
-  </p>
+  <header>
+    <h1>🚀 ESP32 HTTPS OTA Updater</h1>
+    <p>Secure Over-The-Air Firmware Updates | Powered by GitHub + HTTPS</p>
+  </header>
 
-  <div class="section">
-    <h2>📦 Features</h2>
+  <div class="card">
+    <h2>🌟 Project Overview</h2>
+    <p>
+      This ESP32 project enables seamless Over-The-Air (OTA) firmware updates using secure HTTPS communication.  
+      The device periodically checks a hosted GitHub repository for new firmware releases and updates automatically — no manual flashing needed.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>⚙️ Core Features</h2>
     <ul>
-      <li>Automatic OTA firmware updates via HTTPS</li>
-      <li>Version-controlled updates using <code>version.txt</code></li>
-      <li>Secure download from GitHub-hosted binary</li>
-      <li>Automatic periodic update checks</li>
-      <li>Serial logs for debugging and status updates</li>
+      <li>Automatic firmware version checking every 30 minutes</li>
+      <li>Secure HTTPS communication with GitHub</li>
+      <li>Fail-safe OTA update process with progress tracking</li>
+      <li>Reboots automatically after successful flash</li>
+      <li>Fully open-source implementation</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>⚙️ How It Works</h2>
-    <ol>
-      <li>ESP32 connects to Wi-Fi and retrieves <code>version.txt</code> from your GitHub repository.</li>
-      <li>If a new version is detected, the new <code>.bin</code> file is downloaded securely via HTTPS.</li>
-      <li>ESP32 performs a flash update and automatically reboots into the new firmware.</li>
-    </ol>
-  </div>
-
-  <div class="section">
-    <h2>🧰 Requirements</h2>
-    <ul>
-      <li>ESP32 board</li>
-      <li>Arduino IDE with ESP32 core installed</li>
-      <li>WiFi connection</li>
-      <li>GitHub repository containing <code>firmware.bin</code> and <code>version.txt</code></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>📁 GitHub File Structure</h2>
+  <div class="card">
+    <h2>🧱 File Structure</h2>
     <pre>
 📦 esp32-ota-firmware
  ┣ 📜 firmware.bin
  ┣ 📜 version.txt
- ┗ 📜 README.md
+ ┗ 📜 README.html
     </pre>
   </div>
 
-  <div class="section">
-    <h2>🚀 Example Output (Serial Monitor)</h2>
+  <div class="card">
+    <h2>🧪 Example Output</h2>
     <pre>
 ✅ WiFi connected!
 IP address: 192.168.1.25
@@ -102,18 +107,18 @@ Available Version: 1.1.0
     </pre>
   </div>
 
-  <div class="section">
-    <h2>🧠 Author</h2>
+  <div class="card">
+    <h2>👨‍💻 Author</h2>
     <p>
-      Developed by <strong>Mohd Musharraf</strong> at <em>Advancetech Pvt. Ltd.</em>  
-      For educational and research purposes.  
+      Developed by <strong>Mohd Musharraf</strong>  
+      under guidance from <em>Advancetech Pvt. Ltd.</em>  
+      Project Type: Research + Development | Field: IoT & Embedded Systems
     </p>
   </div>
 
-  <div class="section">
-    <h2>📄 License</h2>
-    <p>This project is open-source under the MIT License.</p>
-  </div>
+  <footer>
+    <p>© 2025 ESP32 OTA Project | Built with ❤️ by Mohd Musharraf</p>
+  </footer>
 
 </body>
 </html>
