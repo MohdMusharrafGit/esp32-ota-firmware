@@ -1,28 +1,29 @@
-🚀 ESP32 HTTPS OTA Updater
+🚀 Secure HTTPS OTA Firmware Updater for ESP32
 
-A lightweight project that enables secure Over-The-Air (OTA) firmware updates for the ESP32 using HTTPS directly from GitHub.
+This project focuses on the implementation of a secure Over-The-Air (OTA) update mechanism for ESP32 microcontrollers using the HTTPS protocol. The concept ensures that embedded systems can autonomously download and install new firmware updates without manual intervention.
 
-⚙️ Features
+The process involves the following key stages:
 
-🔒 Secure HTTPS firmware download
+1.Network Initialization – Establishing Wi-Fi connectivity for cloud-based communication.
 
-🔄 Auto version check and update
+2.Version Verification – The device periodically checks a hosted version.txt file on a secure HTTPS server to determine if newer firmware is available.
 
-💡 Easy setup with Arduino IDE
+3.Firmware Retrieval – If an update is detected, the system securely downloads the latest binary (firmware.bin) over HTTPS using SSL/TLS encryption.
 
-🧠 No manual flashing required
+4.Self-Updating Process – The ESP32 replaces the existing firmware with the newly downloaded one, ensuring system integrity and reliability.
 
-🧩 How It Works
+5.Reboot and Validation – The device automatically restarts to apply the new firmware and resumes normal operation.
 
-ESP32 connects to Wi-Fi → checks GitHub version.txt → downloads firmware.bin if a new version is available → flashes and reboots automatically.
+Such OTA systems are widely used in IoT applications, industrial automation, and connected embedded systems, as they reduce maintenance costs and enhance device longevity by enabling remote software updates.
 
-📁 Files
+🧠 Technical Highlights
 
-main.ino – main source code
+• Uses WiFiClientSecure and HTTPUpdate libraries for encrypted OTA communication.
 
-firmware.bin – compiled binary
+• Compatible with both legacy and modern Arduino IDE environments.
 
-version.txt – stores firmware version
+• Employs version control via remote file hosting (e.g., GitHub Pages or any HTTPS server).
 
-Author: Mohd Musharraf – Advancetech Pvt. Ltd.
-⭐ Give a star if you find it useful!
+• Ensures security, scalability, and easy firmware management for field-deployed devices.
+
+“Developed by: Mohd Musharraf – Advancetech Pvt. Ltd.”
