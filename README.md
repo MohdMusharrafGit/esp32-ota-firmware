@@ -4,15 +4,15 @@ This project focuses on the implementation of a secure Over-The-Air (OTA) update
 
 The process involves the following key stages:
 
-1.Network Initialization – Establishing Wi-Fi connectivity for cloud-based communication.
+1. Network Initialization – Establishing Wi-Fi connectivity for cloud-based communication.
 
-2.Version Verification – The device periodically checks a hosted version.txt file on a secure HTTPS server to determine if newer firmware is available.
+2. Version Verification – The device periodically checks a hosted version.txt file on a secure HTTPS server to determine if newer firmware is available.
 
-3.Firmware Retrieval – If an update is detected, the system securely downloads the latest binary (firmware.bin) over HTTPS using SSL/TLS encryption.
+3. Firmware Retrieval – If an update is detected, the system securely downloads the latest binary (firmware.bin) over HTTPS using SSL/TLS encryption.
 
-4.Self-Updating Process – The ESP32 replaces the existing firmware with the newly downloaded one, ensuring system integrity and reliability.
+4. Self-Updating Process – The ESP32 replaces the existing firmware with the newly downloaded one, ensuring system integrity and reliability.
 
-5.Reboot and Validation – The device automatically restarts to apply the new firmware and resumes normal operation.
+5. Reboot and Validation – The device automatically restarts to apply the new firmware and resumes normal operation.
 
 Such OTA systems are widely used in IoT applications, industrial automation, and connected embedded systems, as they reduce maintenance costs and enhance device longevity by enabling remote software updates.
 
@@ -25,5 +25,7 @@ Such OTA systems are widely used in IoT applications, industrial automation, and
 • Employs version control via remote file hosting (e.g., GitHub Pages or any HTTPS server).
 
 • Ensures security, scalability, and easy firmware management for field-deployed devices.
+  
+  🔧 Developed with precision by **Mohd Musharraf**  
+  © 2025 **Advancetech India Pvt. Ltd.** – All rights reserved.
 
-“Developed by: Mohd Musharraf – Advancetech Pvt. Ltd.”
